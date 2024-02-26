@@ -82,7 +82,7 @@
       }
       .sidebar {
         width: 20vw;
-        height: 100%;
+        height: auto;
         background-color: aqua;
         padding: 20px;
       }
@@ -335,12 +335,11 @@
       const cover = document.getElementsByClassName("cover");
       enterButton.addEventListener("click", function () {
         enterButton.remove();
-        enterButton.remove();
         for (let i = 0; i < cover.length; i++) {
           cover[i].classList.add("open");
         }
         setTimeout(() => {
-          page.style.overflow = "visible";
+          page.style.overflow = "window";
           coverWrapper.remove();
           buttonWrapper.remove();
         }, 2000);
