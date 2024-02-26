@@ -1,0 +1,151 @@
+<html>
+  <head>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+      .cover-wrapper {
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        position: absolute;
+      }
+      .button-wrapper {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      button {
+        color: white;
+        padding: 10px 50px;
+        z-index: 1;
+        background-color: #000;
+        border: 2px solid #fff;
+        border-radius: 10px;
+      }
+      .cover {
+        background-color: #000;
+        position: absolute;
+        transition-duration: 2s;
+      }
+      .c1 {
+        height: 100vh;
+        width: 50vw;
+        left: 50vw;
+        top: 0;
+      }
+      .c1.open {
+        left: 100vw;
+      }
+      .c2 {
+        height: 50vh;
+        width: 100vw;
+        top: 50vh;
+      }
+      .c2.open {
+        top: 100vh;
+      }
+      .c3 {
+        height: 50vh;
+        width: 100vw;
+        top: 0;
+      }
+      .c3.open {
+        top: -50vh;
+      }
+      .c4 {
+        height: 100vh;
+        width: 50vw;
+        left: 0;
+        top: 0;
+      }
+      .c4.open {
+        left: -50vw;
+      }
+      #page-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: none;
+        flex-direction: row;
+        z-index: -100;
+      }
+      .sidebar {
+        width: 20vw;
+        height: 100vh;
+        background-color: aqua;
+        padding: 20px;
+      }
+      .page-content {
+        width: 80vw;
+        height: 100vh;
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="button-wrapper">
+      <button id="enter">Enter</button>
+    </div>
+    <div class="cover-wrapper">
+      <div class="cover c1"></div>
+      <div class="cover c2"></div>
+      <div class="cover c3"></div>
+      <div class="cover c4"></div>
+    </div>
+    <div id="page-wrapper">
+      <!-- any react component already loaded -->
+      <div class="sidebar">
+        <h3>Menu</h3>
+        <ul>
+          <li>item</li>
+          <li>item</li>
+          <li>item</li>
+          <li>item</li>
+          <li>item</li>
+          <li>item</li>
+        </ul>
+      </div>
+      <div class="page-content">
+        <h3>Header</h3>
+        <p>
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
+          ab illo inventore veritatis et quasi architecto beatae vitae dicta
+          sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
+          aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos
+          qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui
+          dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed
+          quia non numquam eius modi tempora incidunt ut labore et dolore magnam
+          aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum
+          exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex
+          ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in
+          ea voluptate velit esse quam nihil molestiae consequatur, vel illum
+          qui dolorem eum fugiat quo voluptas nulla pariatur?
+        </p>
+      </div>
+    </div>
+    <script>
+      const enterButton = document.getElementById("enter");
+      const page = document.getElementById("page-wrapper");
+      const cover = document.getElementsByClassName("cover");
+      enterButton.addEventListener("click", function () {
+        enterButton.remove();
+        for (let i = 0; i < cover.length; i++) {
+          cover[i].classList.add("open");
+        }
+        page.style.display = "flex";
+        console.log("open");
+      });
+    </script>
+  </body>
+</html>
